@@ -4,6 +4,7 @@
 #include "RenderingManager.h"
 #include "GameObject.h"
 #include <memory>
+#include "Camera.h"
 
 #include "Sprite.h"
 
@@ -19,7 +20,7 @@ public:
 
 	void on_enable() override;
 	void on_disable() override;
-	void render(SDL_Renderer* target) override;
+	void render(SDL_Renderer* a_target, Camera* a_camera) override;
 
 	void setSprite(std::shared_ptr<Sprite> sprite);
 };

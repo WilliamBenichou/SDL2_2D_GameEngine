@@ -1,14 +1,16 @@
 #include "TestMoveComponent.h"
 
-const float moveSpeed = 200.0f;
+const float moveSpeed = 2;
 
 void TestMoveComponent::on_added()
 {
+	Component::on_added();
 	_keyStates = SDL_GetKeyboardState(nullptr);
 }
 
 void TestMoveComponent::on_manage()
 {
+	Component::on_manage();
 	auto pos = _parentGo->getPosition();
 
 	Vector2F input = Vector2F();
@@ -30,6 +32,6 @@ void TestMoveComponent::on_manage()
 	}
 
 	pos.x += moveSpeed * Time::delta_time() * input.x;
-	pos.y += moveSpeed * Time::delta_time() * -input.y;
+	pos.y += moveSpeed * Time::delta_time() * input.y;
 	_parentGo->setPosition(pos);
 }

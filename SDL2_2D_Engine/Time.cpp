@@ -14,7 +14,7 @@ void Time::refresh() const
 	const auto time = std::chrono::steady_clock::now();
 	s_deltaTime = std::chrono::duration_cast<std::chrono::microseconds>(time - s_prev_time).count() / 1000000.0f;
 	s_prev_time = time;
-	std::cout << "Frame Duration: " << s_deltaTime << "ms (" << (1.0f / s_deltaTime) << "fps)" << std::endl;
+	//std::cout << "Frame Duration: " << s_deltaTime << "ms (" << (1.0f / s_deltaTime) << "fps)" << std::endl;
 }
 
 float Time::curr_frame_duration() const
