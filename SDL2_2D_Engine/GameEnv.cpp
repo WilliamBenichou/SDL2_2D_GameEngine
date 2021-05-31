@@ -1,6 +1,8 @@
 #include "GameEnv.h"
 
 #include "Time.h"
+#include "RenderingManager.h"
+#include "ResourceManager.h"
 
 //Main loop flag
 bool quit = false;
@@ -26,7 +28,7 @@ bool GameEnv::init()
 	}
 	else
 	{
-		GameEnv::initModules();
+		GameEnv::init_modules();
 	}
 
 	std::cout << "Initialization: " << success << std::endl;
@@ -62,15 +64,17 @@ void GameEnv::close()
 	SDL_Quit();
 }
 
-void GameEnv::initModules()
+void GameEnv::init_modules()
 {
 	_timer = Time();
+	_resMgr = new ResourceManager();
 	_renderingMgr = new RenderingManager();
 }
 
 void GameEnv::clean_modules() const
 {
 	delete _renderingMgr;
+	delete _resMgr;
 }
 
 void GameEnv::update_main_thread() const
@@ -83,6 +87,15 @@ void GameEnv::update_main_thread() const
 	}
 
 	_renderingMgr->update();
+
+	if (_capFps)
+	{
+		const float frame_delay = (1.0f / _targetFps) - _timer.curr_frame_duration();
+		if (frame_delay > 0)
+		{
+			SDL_Delay(static_cast<Uint32>(frame_delay * 1000.0f));
+		}
+	}
 }
 
 GameEnv::GameEnv()
@@ -98,6 +111,16 @@ GameEnv* GameEnv::getInstance()
 Scene* GameEnv::get_active_scene() const
 {
 	return _activeScene;
+}
+
+RenderingManager* GameEnv::get_rendering_manager() const
+{
+	return _renderingMgr;
+}
+
+ResourceManager* GameEnv::get_res_manager() const
+{
+	return _resMgr;
 }
 
 void GameEnv::run() {

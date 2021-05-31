@@ -9,13 +9,13 @@ SpriteRenderer::SpriteRenderer()
 void SpriteRenderer::on_enable()
 {
 	Renderer::on_enable();
-	GameEnv::getInstance()->getRenderingManager()->registerRenderer(this);
+	GameEnv::getInstance()->get_rendering_manager()->registerRenderer(this);
 }
 
 void SpriteRenderer::on_disable()
 {
 	Renderer::on_disable();
-	GameEnv::getInstance()->getRenderingManager()->unregisterRenderer(this);
+	GameEnv::getInstance()->get_rendering_manager()->unregisterRenderer(this);
 }
 
 void SpriteRenderer::render(SDL_Renderer* target)
@@ -28,7 +28,7 @@ void SpriteRenderer::render(SDL_Renderer* target)
 		rect.w = 32;
 		rect.h = 32;
 
-		SDL_RenderCopy(target, _sprite->get_texture(), nullptr, &rect);
+		SDL_RenderCopy(target, _sprite->get_texture()->getSdlTexture(), nullptr, &rect);
 	}
 }
 

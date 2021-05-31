@@ -1,9 +1,12 @@
 #pragma once
 #include <SDL.h>
-#include <stdio.h>
-#include "RenderingManager.h"
+#include <cstdio>
+
 #include "Scene.h"
 #include "Time.h"
+
+class ResourceManager;
+class RenderingManager;
 
 class GameEnv
 {
@@ -13,14 +16,17 @@ private:
 	SDL_Surface* gHelloWorld = NULL;
 
 	RenderingManager* _renderingMgr;
+	ResourceManager* _resMgr;
 
 	std::list<Scene* > _scenes;
 	Scene* _activeScene = nullptr;
 	Time _timer;
 
-	bool loadMedia();
+	bool _capFps = true;
+	float _targetFps = 60.0f;
+
 	void close();
-	void initModules();
+	void init_modules();
 	void clean_modules() const;
 	void update_main_thread() const;
 public:
@@ -30,7 +36,8 @@ public:
 
 	static GameEnv* getInstance();
 	Scene* get_active_scene() const;
-	RenderingManager* getRenderingManager() const { return _renderingMgr; }
+	RenderingManager* get_rendering_manager() const;
+	ResourceManager* get_res_manager() const;
 	bool init();
 	void run();
 	void create_empty_scene();

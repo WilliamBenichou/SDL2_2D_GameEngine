@@ -1,14 +1,10 @@
 #pragma once
-#include <SDL.h>
+
 #include <cstdlib>
-#include <stdio.h>
-#include "GameEnv.h"
-#include <SDL_image.h>
-#include "GameObject.h"
-#include "SpriteRenderer.h"
-#include <iostream>
-#include <memory>
+#include "EngineCore.h"
+
 #include "TestMoveComponent.h"
+#include "ResourceManager.h"
 
 int main(int argc, char* args[])
 {
@@ -17,7 +13,7 @@ int main(int argc, char* args[])
 	gameEnv.create_empty_scene();
 
 	{
-		const std::shared_ptr<Sprite> testSprite = Sprite::load("Res/test_sprite.png");
+		const std::shared_ptr<Sprite> testSprite = gameEnv.get_res_manager()->load_sprite("Res/test_sprite.png");
 
 		for (int i = 0; i < 10; ++i)
 		{

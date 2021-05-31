@@ -6,15 +6,15 @@
 
 #include "GameEnv.h"
 #include "RenderingManager.h"
+#include "Resource.h"
+#include "Texture.h"
 
-class Sprite
+class Sprite : public Resource
 {
 private:
-	SDL_Texture* _tex = nullptr;
-
+	std::shared_ptr<Texture> _tex = nullptr;
 public:
-	Sprite(SDL_Texture* tex);
-	~Sprite();
-	static std::shared_ptr<Sprite> load(const std::string& path);
-	SDL_Texture* get_texture() const;
+	explicit Sprite(const std::shared_ptr<Texture>& a_tex);
+	~Sprite() override;
+	std::shared_ptr<Texture> get_texture() const;
 };
