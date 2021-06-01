@@ -18,7 +18,7 @@ std::shared_ptr<Texture> ResourceManager::load_texture(const std::string& a_path
 	SDL_Surface* surface = IMG_Load(a_path.c_str());
 	if (surface != nullptr)
 	{
-		SDL_Renderer* renderer = GameEnv::getInstance()->get_rendering_manager()->get_renderer();
+		SDL_Renderer* renderer = GameEnv::get_instance()->get_rendering_manager()->get_renderer();
 		SDL_Texture* texture = SDL_CreateTextureFromSurface(renderer, surface);
 		if (texture != nullptr)
 		{

@@ -32,9 +32,8 @@ private:
 public:
 
 	GameEnv();
-	~GameEnv();
 
-	static GameEnv* getInstance();
+	static GameEnv* get_instance();
 	Scene* get_active_scene() const;
 	RenderingManager* get_rendering_manager() const;
 	ResourceManager* get_res_manager() const;

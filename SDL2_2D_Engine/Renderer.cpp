@@ -5,7 +5,7 @@
 void Renderer::on_added()
 {
 	Component::on_added();
-	_renderingMgr = GameEnv::getInstance()->get_rendering_manager();
+	_renderingMgr = GameEnv::get_instance()->get_rendering_manager();
 }
 
 void Renderer::on_enable()

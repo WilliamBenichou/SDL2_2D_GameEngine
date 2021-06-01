@@ -35,15 +35,6 @@ bool GameEnv::init()
 	return success;
 }
 
-GameEnv::~GameEnv()
-{
-	for (Scene* scene : _scenes)
-	{
-		delete scene;
-	}
-	_activeScene = nullptr;
-	_scenes.clear();
-}
 
 void GameEnv::close()
 {
@@ -55,6 +46,8 @@ void GameEnv::close()
 	{
 		delete scene;
 	}
+	_activeScene = nullptr;
+	_scenes.clear();
 
 	std::cout << "Cleaning..." << std::endl;
 
@@ -103,7 +96,7 @@ GameEnv::GameEnv()
 	init();
 }
 
-GameEnv* GameEnv::getInstance()
+GameEnv* GameEnv::get_instance()
 {
 	return s_instance;
 }

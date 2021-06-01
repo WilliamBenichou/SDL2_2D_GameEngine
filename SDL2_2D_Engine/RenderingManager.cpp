@@ -15,16 +15,12 @@ void RenderingManager::unregisterRenderer(Renderer* renderer)
 
 void RenderingManager::update() const
 {
-	SDL_SetRenderTarget(_renderer, nullptr); //retarget window
 	SDL_RenderClear(_renderer);
 	for each (Camera* cam in _cameras)
 	{
 		cam->render(_renderers);
-		
-		SDL_SetRenderTarget(_renderer, nullptr); //retarget window
-		SDL_RenderCopy(_renderer, cam->render_tex(), nullptr, nullptr);
-		SDL_RenderPresent(_renderer);
 	}
+	SDL_RenderPresent(_renderer);
 
 }
 

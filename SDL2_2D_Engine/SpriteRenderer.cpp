@@ -9,13 +9,13 @@ SpriteRenderer::SpriteRenderer()
 void SpriteRenderer::on_enable()
 {
 	Renderer::on_enable();
-	GameEnv::getInstance()->get_rendering_manager()->registerRenderer(this);
+	GameEnv::get_instance()->get_rendering_manager()->registerRenderer(this);
 }
 
 void SpriteRenderer::on_disable()
 {
 	Renderer::on_disable();
-	GameEnv::getInstance()->get_rendering_manager()->unregisterRenderer(this);
+	GameEnv::get_instance()->get_rendering_manager()->unregisterRenderer(this);
 }
 
 void SpriteRenderer::render(SDL_Renderer* a_renderer, Camera* a_camera)
