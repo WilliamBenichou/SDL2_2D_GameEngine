@@ -55,13 +55,13 @@
     <Filter Include="Source Files\User\Samples">
       <UniqueIdentifier>{4674d68a-af7c-483b-9dec-61f2205da318}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source Files\Core\Components">
+      <UniqueIdentifier>{5d85cccd-c5c0-49b0-8cb5-47a4d2d82852}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Main.cpp">
       <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Camera.cpp">
-      <Filter>Source Files\Core</Filter>
     </ClCompile>
     <ClCompile Include="Component.cpp">
       <Filter>Source Files\Core</Filter>
@@ -70,9 +70,6 @@
       <Filter>Source Files\Core</Filter>
     </ClCompile>
     <ClCompile Include="GameObject.cpp">
-      <Filter>Source Files\Core</Filter>
-    </ClCompile>
-    <ClCompile Include="Renderer.cpp">
       <Filter>Source Files\Core</Filter>
     </ClCompile>
     <ClCompile Include="RenderingManager.cpp">
@@ -90,9 +87,6 @@
     <ClCompile Include="Sprite.cpp">
       <Filter>Source Files\Core</Filter>
     </ClCompile>
-    <ClCompile Include="SpriteRenderer.cpp">
-      <Filter>Source Files\Core</Filter>
-    </ClCompile>
     <ClCompile Include="Texture.cpp">
       <Filter>Source Files\Core</Filter>
     </ClCompile>
@@ -104,6 +98,24 @@
     </ClCompile>
     <ClCompile Include="TestMoveComponent.cpp">
       <Filter>Source Files\User</Filter>
+    </ClCompile>
+    <ClCompile Include="PhysicsManager.cpp">
+      <Filter>Source Files\Core</Filter>
+    </ClCompile>
+    <ClCompile Include="Camera.cpp">
+      <Filter>Source Files\Core\Components</Filter>
+    </ClCompile>
+    <ClCompile Include="Renderer.cpp">
+      <Filter>Source Files\Core\Components</Filter>
+    </ClCompile>
+    <ClCompile Include="SpriteRenderer.cpp">
+      <Filter>Source Files\Core\Components</Filter>
+    </ClCompile>
+    <ClCompile Include="PhysicsActor.cpp">
+      <Filter>Source Files\Core\Components</Filter>
+    </ClCompile>
+    <ClCompile Include="Collider.cpp">
+      <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -436,6 +448,15 @@
     </ClInclude>
     <ClInclude Include="SDLDeleter.h">
       <Filter>Header Files\SDL</Filter>
+    </ClInclude>
+    <ClInclude Include="PhysicsManager.h">
+      <Filter>Header Files\Core</Filter>
+    </ClInclude>
+    <ClInclude Include="PhysicsActor.h">
+      <Filter>Header Files\Core\Components</Filter>
+    </ClInclude>
+    <ClInclude Include="Collider.h">
+      <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
