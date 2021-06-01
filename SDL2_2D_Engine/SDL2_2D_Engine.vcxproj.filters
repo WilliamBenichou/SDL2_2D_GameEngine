@@ -115,7 +115,7 @@
       <Filter>Source Files\Core\Components</Filter>
     </ClCompile>
     <ClCompile Include="Collider.cpp">
-      <Filter>Source Files</Filter>
+      <Filter>Source Files\Core\Components</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -456,7 +456,7 @@
       <Filter>Header Files\Core\Components</Filter>
     </ClInclude>
     <ClInclude Include="Collider.h">
-      <Filter>Header Files</Filter>
+      <Filter>Header Files\Core\Components</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

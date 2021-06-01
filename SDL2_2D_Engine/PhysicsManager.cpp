@@ -14,3 +14,11 @@ void PhysicsManager::unregister_actor(PhysicsActor* a_actor)
 	}
 }
 
+void PhysicsManager::update_physics()
+{
+	for (PhysicsActor* actor : _actors)
+	{
+		actor->update_physics();
+	}
+}
+
