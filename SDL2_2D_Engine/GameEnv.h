@@ -7,6 +7,7 @@
 
 class ResourceManager;
 class RenderingManager;
+class PhysicsManager;
 
 class GameEnv
 {
@@ -17,6 +18,7 @@ private:
 
 	RenderingManager* _renderingMgr;
 	ResourceManager* _resMgr;
+	PhysicsManager* _physicsMgr;
 
 	std::list<Scene* > _scenes;
 	Scene* _activeScene = nullptr;
@@ -24,6 +26,7 @@ private:
 
 	bool _capFps = true;
 	float _targetFps = 60.0f;
+	
 
 	void close();
 	void init_modules();
@@ -37,6 +40,7 @@ public:
 	Scene* get_active_scene() const;
 	RenderingManager* get_rendering_manager() const;
 	ResourceManager* get_res_manager() const;
+	PhysicsManager* get_physics_manager() const;
 	bool init();
 	void run();
 	void create_empty_scene();

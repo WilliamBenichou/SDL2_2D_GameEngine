@@ -3,6 +3,7 @@
 #include "Time.h"
 #include "RenderingManager.h"
 #include "ResourceManager.h"
+#include "PhysicsManager.h"
 
 //Main loop flag
 bool quit = false;
@@ -62,12 +63,14 @@ void GameEnv::init_modules()
 	_timer = Time();
 	_resMgr = new ResourceManager();
 	_renderingMgr = new RenderingManager();
+	_physicsMgr = new PhysicsManager();
 }
 
 void GameEnv::clean_modules() const
 {
 	delete _renderingMgr;
 	delete _resMgr;
+	delete _physicsMgr;
 }
 
 void GameEnv::update_main_thread() const
@@ -80,6 +83,7 @@ void GameEnv::update_main_thread() const
 	}
 
 	_renderingMgr->update();
+	_physicsMgr->update_physics();
 
 	if (_capFps)
 	{
@@ -114,6 +118,11 @@ RenderingManager* GameEnv::get_rendering_manager() const
 ResourceManager* GameEnv::get_res_manager() const
 {
 	return _resMgr;
+}
+
+PhysicsManager* GameEnv::get_physics_manager() const
+{
+	return _physicsMgr;
 }
 
 void GameEnv::run() {

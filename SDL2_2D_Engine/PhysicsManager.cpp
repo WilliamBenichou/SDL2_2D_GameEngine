@@ -1,5 +1,12 @@
 #include "PhysicsManager.h"
 
+#include "PhysicsActor.h"
+
+PhysicsManager::PhysicsManager()
+{
+	_world = std::make_unique<b2World>(b2Vec2(0.0f, -9.81f));
+}
+
 void PhysicsManager::register_actor(PhysicsActor* a_actor)
 {
 	_actors.push_back(a_actor);
@@ -20,5 +27,10 @@ void PhysicsManager::update_physics()
 	{
 		actor->update_physics();
 	}
+}
+
+b2World* PhysicsManager::physics_world() const
+{
+	return _world.get();
 }
 
